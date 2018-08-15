@@ -107,6 +107,8 @@ mainList.shopItems.forEach( function(item, i, shopItems) {
 	document.writeln( '<span style="margin-left: 13%">' + (i + 1) + ": " + item + '</span></br>');
 });
 for (let key in mainList) {
-	console.log("Наш магазин включает в себя: " + key);
+	
+		console.log("Наш магазин включает в себя: " + key + ': ' + mainList[key]);
+
 }
 console.log(mainList);

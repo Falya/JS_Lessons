@@ -61,7 +61,7 @@ btn.onclick = function() {
 	let date1 = new Date(dateArr1[2], (dateArr1[1] - 1), dateArr1[0]);
 	let date2 = new Date(dateArr2[2], (dateArr1[1] - 1), dateArr2[0]);
 	let dif;
-	if (date1 =='Invalid Date' && date2 =='Invalid Date') {
+	if (date1 !='Invalid Date' && date2 !='Invalid Date') {
 		if (date1 > date2) {
 		dif = Math.round((date1.getTime() - date2.getTime())/1000/60/60/24);
 		console.log('date1 больше');

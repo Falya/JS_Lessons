@@ -41,6 +41,6 @@ adv.parentElement.removeChild(adv);
 
 window.onload = function() {
 	let howApple = prompt('Как вы относитесь к apple?', '');
-console.log('Пользователь ответил: ' + howApple);
+document.getElementById('prompt').innerHTML = ('Пользователь ответил: ' + howApple);
 };
 

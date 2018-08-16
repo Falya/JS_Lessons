@@ -35,7 +35,11 @@ menuItems[0].parentNode.appendChild(elm);
 console.log(menuItems);
 let bgImg = document.getElementsByTagName('body');
 bgImg[0].style.backgroundImage = 'url(./img/apple_true.jpg)';
-document.getElementById('title').innerHTML += 'подлинную';
+ 
+ str = document.getElementById('title').textContent;
+ str1 = str.substring(0, (str.indexOf('технику')));
+ str2 = str.substring(str.indexOf('технику'));
+ document.getElementById('title').innerHTML = str1 + 'подлинную ' + str2;
 let adv = document.querySelector('.adv');
 adv.parentElement.removeChild(adv);
 

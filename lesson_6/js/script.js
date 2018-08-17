@@ -93,7 +93,7 @@ timeField.addEventListener('change', () => {
 		isopenValue.style.backgroundColor = '#B71C1C';
 	}
 });
-	budgetField.setAttribute('readOnly', true)
+	budgetField.setAttribute('readOnly', true);
 	allBtn[1].addEventListener('click', () => {
 		budgetField.value = (yourBudget / 30).toFixed(1);
 	});
@@ -168,7 +168,7 @@ for (let i = 0; i < namesEmp.length; i++) {
 	namesEmp[i].onkeypress = check;
 }
 function check(e){
-	console.log('Работает паттерн')
+	console.log('Работает паттерн');
 		let evt =  e || window.event;
 		let code = (document.all) || evt.keyCode || evt.charCode;
 		if ((code < 1040) || (code > 1103)) {

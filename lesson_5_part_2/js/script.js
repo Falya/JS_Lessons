@@ -37,5 +37,5 @@ console.log(catField);
  console.log(budgetField);
 
  //6-я часть
- let namesEmp = mainFunc.querySelectorAll('.hire-employers-item');
+ let namesEmp = mainFunc[0].querySelectorAll('.hire-employers-item');
   console.log(namesEmp);

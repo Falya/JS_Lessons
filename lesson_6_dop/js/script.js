@@ -9,7 +9,7 @@ let employersValue = mainInfo.getElementsByClassName('employers-value')[0];
 let isopenValue = mainInfo.getElementsByClassName('isopen-value')[0];
 let discountValue = mainInfo.getElementsByClassName('discount-value')[0];
 let mainFunc = document.getElementsByClassName('main-functions')[0];
-let catField = mainFunc.getElementsByClassName('goods-item');
+let catField = mainFunc.getElementsByClassName('goods-item')[0];
 let allBtn = mainFunc.getElementsByTagName('button');
 let itemField = mainFunc.querySelector('#items');
 let timeField = mainFunc.querySelector('#time');
@@ -93,7 +93,7 @@ timeField.addEventListener('change', () => {
 		isopenValue.style.backgroundColor = '#B71C1C';
 	}
 });
-	budgetField.setAttribute('readOnly', true)
+	budgetField.setAttribute('readOnly', true);
 	allBtn[1].addEventListener('click', () => {
 		budgetField.value = (yourBudget / 30).toFixed(1);
 	});

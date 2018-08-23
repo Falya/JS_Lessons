@@ -1,21 +1,23 @@
-// 1-я часть
-let openBtn = document.getElementById('open-btn');
-let mainInfo = document.getElementsByClassName('main-info')[0];
-let nameValue = mainInfo.getElementsByClassName('name-value')[0];
-let budgetValue = mainInfo.getElementsByClassName('budget-value')[0];
-let goodsValue = mainInfo.getElementsByClassName('goods-value')[0];
-let itemsValue = mainInfo.getElementsByClassName('items-value')[0];
-let employersValue = mainInfo.getElementsByClassName('employers-value')[0];
-let isopenValue = mainInfo.getElementsByClassName('isopen-value')[0];
-let discountValue = mainInfo.getElementsByClassName('discount-value')[0];
-let mainFunc = document.getElementsByClassName('main-functions')[0];
-let catField = mainFunc.getElementsByClassName('goods-item')[0];
-let allBtn = mainFunc.getElementsByTagName('button');
-let itemField = mainFunc.querySelector('#items');
-let timeField = mainFunc.querySelector('#time');
-let budgetField = mainFunc.querySelector('#budget');
-let namesEmp = mainFunc.querySelectorAll('.hire-employers-item');
-let discountField = mainFunc.querySelector("#discount-btn");
+window.addEventListener('DOMContentLoaded', function() {
+	// 1-я часть
+let openBtn = document.getElementById('open-btn'),
+		closeBtn = document.querySelector('#close-btn'),
+		mainInfo = document.getElementsByClassName('main-info')[0],
+		nameValue = mainInfo.getElementsByClassName('name-value')[0],
+		budgetValue = mainInfo.getElementsByClassName('budget-value')[0],
+		goodsValue = mainInfo.getElementsByClassName('goods-value')[0],
+		itemsValue = mainInfo.getElementsByClassName('items-value')[0];
+		employersValue = mainInfo.getElementsByClassName('employers-value')[0],
+		isopenValue = mainInfo.getElementsByClassName('isopen-value')[0],
+		discountValue = mainInfo.getElementsByClassName('discount-value')[0],
+		mainFunc = document.getElementsByClassName('main-functions')[0],
+		catField = mainFunc.getElementsByClassName('goods-item'),
+		allBtn = mainFunc.getElementsByTagName('button'),
+		itemField = mainFunc.querySelector('#items'),
+		timeField = mainFunc.querySelector('#time'),
+		budgetField = mainFunc.querySelector('#budget'),
+		namesEmp = mainFunc.querySelectorAll('.hire-employers-item'),
+		discountField = mainFunc.querySelector("#discount-btn");
 
 let yourBudget,
 shopName,
@@ -39,6 +41,31 @@ openBtn.addEventListener('click', () => {
 	}
 
 	nameValue.textContent = shopName;
+	mainInfo.style.display = 'flex';
+	mainFunc.style.display = 'block';
+	openBtn.style.display = 'none';
+	closeBtn.style.display = 'flex';
+
+});
+
+closeBtn.addEventListener('click', function() {
+	nameValue .textContent = '';
+budgetValue.textContent  = '';
+goodsValue .textContent = '';
+itemsValue.textContent  = '';
+employersValue.textContent  = '';
+timeField.value = '';
+budgetField.value = '';
+yourBudget = '';
+mainList.shopName = '';
+allBtn[1].disabled = true;
+discountField.disabled =true;
+closeBtn.style.display = 'none';
+openBtn.style.display = '';
+allBtn[0].disabled =true;
+for (let i = 0; i < catField.length; i++) {
+	catField[i].value = '';
+}
 
 });
 
@@ -88,13 +115,14 @@ timeField.addEventListener('change', () => {
 		mainList.open = false;
 	}
 	if (mainList.open) {
-		isopenValue.style.backgroundColor = '#2E7D32';
+		isopenValue.style.backgroundColor = '#38ef7d';
 	} else {
-		isopenValue.style.backgroundColor = '#B71C1C';
+		isopenValue.style.backgroundColor = '#FF464C';
 	}
 });
 	budgetField.setAttribute('readOnly', true);
 	allBtn[1].addEventListener('click', () => {
+
 		budgetField.value = (yourBudget / 30).toFixed(1);
 	});
 
@@ -116,9 +144,9 @@ timeField.addEventListener('change', () => {
 
 discountField.addEventListener('click', () => {
 	if (discountField.checked){
-		discountValue.style.backgroundColor = '#2E7D32';
+		discountValue.style.backgroundColor = '#38ef7d';
 	} else {
-		discountValue.style.backgroundColor = '#B71C1C';
+		discountValue.style.backgroundColor = '#FF464C';
 	}
 });
 
@@ -142,7 +170,7 @@ mainFunc.addEventListener('change', () => {
 		}
 	}
 
-	if ( item_count > 0 && yourBudget	!= null) {
+	if ( (item_count > 0 && yourBudget	!= null) || item_count > 0 && yourBudget	!= '') {
 		allBtn[0].disabled = false;
 	}else{
 		allBtn[0].disabled = true;
@@ -161,6 +189,12 @@ mainFunc.addEventListener('change', () => {
 		allBtn[2].disabled = true;
 	}
 
+	 if (yourBudget != null || yourBudget != '') {
+			allBtn[1].disabled = false;
+	} else {
+		allBtn[1].disabled = true;
+	}
+
 
 
 });
@@ -168,7 +202,7 @@ for (let i = 0; i < namesEmp.length; i++) {
 	namesEmp[i].onkeypress = check;
 }
 function check(e){
-	console.log('Работает паттерн')
+	console.log('Работает паттерн');
 		let evt =  e || window.event;
 		let code = (document.all) || evt.keyCode || evt.charCode;
 		if ((code < 1040) || (code > 1103)) {
@@ -201,19 +235,6 @@ let mainList = {
 		},
 };
 
-// mainList.joinEmployers();
-// mainList.chooseGoods();
-// mainList.chooseShopItems();
-// mainList.discountFunc(54);
-// mainList.workTime(21);
-// alert( mainList.dayBudget(yourBudget) );
-// document.writeln('У нас вы можете купить:</br>');
-// mainList.shopItems.forEach( function(item, i, shopItems) {
-// 	document.writeln( '<span style="margin-left: 13%">' + (i + 1) + ": " + item + '</span></br>');
-// });
-// for (let key in mainList) {
-	
-// 		console.log("Наш магазин включает в себя: " + key + ': ' + mainList[key]);
+// 
 
-// }
-// console.log(mainList);
+});

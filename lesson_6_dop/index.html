@@ -7,12 +7,18 @@
 	<title>Java Script</title>
   </head>
   <body>
-
+	<div class="background-sky hero"></div>
+	<div class="hero-headline">
+Material disign shop
+	</div>
 	<div class="open">
-		<button class="open-btn" id="open-btn">Открыть магазин</button>
+		<a class="open-btn " id="open-btn" title="Жми, не бойся">Открыть магазин</a>
+	</div>
+	<div class="open-close">
+		<a class="open-btn " id="close-btn">Закрыть магазин</a>
 	</div>
 	<div class="main">
-		<div class="main-info">
+		<div class="main-info fade">
 			<div class="name">Название магазина: </div>
 			<div class="name-value"></div>
 
@@ -33,8 +39,11 @@
 
 			<div class="isopen">Открыто </div>
 			<div class="isopen-value"></div>
+			<div class="logo">
+				<img src='img/logo-m.png'  alt="Malks Falei" title="Maks Falei">
+			</div>
 		</div>
-		<div class="main-functions">
+		<div class="main-functions fade2">
 			<div class="choose-goods">Введите категории товаров</div>
 			<input class="goods-item" type="text" id="goods_1">
 			<input class="goods-item" type="text" id="goods_2">

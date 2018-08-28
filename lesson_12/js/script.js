@@ -387,28 +387,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
     showSlides(slideIndex);
 
-    function showSlides (n) {
-        if ( n > slides.length ) {
+    function showSlides(n) {
+        if (n > slides.length) {
             slideIndex = 1;
-         } 
-         if ( n < 1) {
-             slideIndex = slides.length;
-         }
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
 
-         for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = 'none';
-         }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+        }
 
-         for (let i = 0; i < dot.length; i++) {
-                dot[i].classList.remove('dot-active');
-         }
+        for (let i = 0; i < dot.length; i++) {
+            dot[i].classList.remove('dot-active');
+        }
 
-         slides[slideIndex - 1].style.display = 'block';
-         dot[slideIndex - 1].classList.add('dot-active');
+        slides[slideIndex - 1].style.display = 'block';
+        dot[slideIndex - 1].classList.add('dot-active');
     }
 
-    function plusSlide (n) {
-       showSlides(slideIndex += n);
+    function plusSlide(n) {
+        showSlides(slideIndex += n);
     }
 
     function currentSlide(n) {
@@ -426,9 +426,9 @@ window.addEventListener('DOMContentLoaded', () => {
     dotsWrap.addEventListener('click', (event) => {
         let target = event.target;
         for (let i = 0; i <= dot.length; i++) {
-           if (target.classList.contains('dot') && target == dot[i - 1]) {
-              currentSlide(i);
-           }
+            if (target.classList.contains('dot') && target == dot[i - 1]) {
+                currentSlide(i);
+            }
         }
     });
 
@@ -442,64 +442,63 @@ window.addEventListener('DOMContentLoaded', () => {
         daysSum = 0,
         total = 0;
 
-        totalValue.innerHTML = 0;
+    totalValue.innerHTML = 0;
 
-        persons.addEventListener('change', function() {
-           if (personsSum == 0 || persons.value != '' && persons.value != 0) {
-               personsSum = this.value;
-            }
-            if (persons.value == '' && restDays.value == '') {
-                 personsSum = 0;
-             } 
-           console.log("personsSum", personsSum);
-           total = personsSum * daysSum * 30;
-           totalValue.innerHTML = total;
-           if (restDays.value == '') {
-              totalValue.innerHTML = 0;
-           } else {
-            totalValue.innerHTML = total;
-           }
-        }); 
-
-        restDays.addEventListener('change', function() {
-           if (daysSum == 0 || restDays.value != '' && restDays.value != 0) {
-            daysSum = this.value;
-            }
-            if (persons.value == '' && restDays.value == '') {
-                 daysSum = 0;
-             }  
-           console.log("daysSum", daysSum);
-           total = personsSum * daysSum * 30;
-           totalValue.innerHTML = total;
-           if (persons.value == '') {
-                totalValue.innerHTML = 0;
-                } else {
-                  totalValue.innerHTML = total;  
-                }     
-        }); 
-
-        place.addEventListener('change', function() {
-            if (restDays.value == '' || persons.value == '') {
-                totalValue.innerHTML = 0;
-            } else {
-                let a = total;
-                totalValue.innerHTML = a * this.options[this.selectedIndex].value;
-            }
-        });
-//  Обработчики событий на инпуты
-        persons.addEventListener('keypress', inputValidator);
-        restDays.addEventListener('keypress', inputValidator);
-
-        function inputValidator(event) {
-            console.log(event)
-           if (event.key.search(/[0-9]/)) {
-                if (event.keyCode == 43 || event.keyCode == 101 || event.keyCode == 46 || event.keyCode == 44 || event.keyCode == 45) {
-                    event.preventDefault();
-                }
-               console.log(event.key);
-               return event.key;
-           } else {
-            return '';
-           }
+    persons.addEventListener('change', function() {
+        if (personsSum == 0 || persons.value != '' && persons.value != 0) {
+            personsSum = this.value;
         }
+        if (persons.value == '' && restDays.value == '') {
+            personsSum = 0;
+        }
+        console.log("personsSum", personsSum);
+        total = personsSum * daysSum * 30;
+        totalValue.innerHTML = total;
+        if (restDays.value == '') {
+            totalValue.innerHTML = 0;
+        } else {
+            totalValue.innerHTML = total;
+        }
+    });
+
+    restDays.addEventListener('change', function() {
+        if (daysSum == 0 || restDays.value != '' && restDays.value != 0) {
+            daysSum = this.value;
+        }
+        if (persons.value == '' && restDays.value == '') {
+            daysSum = 0;
+        }
+        console.log("daysSum", daysSum);
+        total = personsSum * daysSum * 30;
+        totalValue.innerHTML = total;
+        if (persons.value == '') {
+            totalValue.innerHTML = 0;
+        } else {
+            totalValue.innerHTML = total;
+        }
+    });
+
+    place.addEventListener('change', function() {
+        if (restDays.value == '' || persons.value == '') {
+            totalValue.innerHTML = 0;
+        } else {
+            let a = total;
+            totalValue.innerHTML = a * this.options[this.selectedIndex].value;
+        }
+    });
+    //  Обработчики событий на инпуты
+    persons.addEventListener('keypress', inputValidator);
+    restDays.addEventListener('keypress', inputValidator);
+
+    function inputValidator(event) {
+        if (event.key.search(/[0-9]/)) {
+            if (event.keyCode == 43 || event.keyCode == 101 || event.keyCode == 46 || event.keyCode == 44 || event.keyCode == 45) {
+                event.preventDefault();
+            }
+            console.log(event.key);
+            return event.key;
+        } else {
+            return '';
+        }
+    }
 });

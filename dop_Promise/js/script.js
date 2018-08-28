@@ -327,7 +327,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                         if (request.readyState < 4) {
                             resolve();
-                            console.log('loading')
+                            console.log('loading');
                         } else if (request.readyState === 4) {
                             if (request.status == 200 && request.status < 300) {
                                 console.log('success');
@@ -348,14 +348,14 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             postData(formData)
                 .then(() => {
-                    statusMessage.style.display = 'block'
+                    statusMessage.style.display = 'block';
                     statusMessage.appendChild(divCircle);
                     divCircle.appendChild(divComplete);
                     divCircle.classList.add('circle-loader');
                 })
                 .then(() => {
                     divCircle.classList.add('load-complete');
-                    divComplete.classList.add('draw', 'checkmark')
+                    divComplete.classList.add('draw', 'checkmark');
                     setTimeout(() => {
                         statusMessage.classList.add('fadeOut');
                         statusMessage.classList.remove('fade');

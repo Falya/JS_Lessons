@@ -239,7 +239,13 @@
             </div>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <!-- <script>
+  window.Promise || document.write('<script src="https://unpkg.com/es6-promise@3.2.1/dist/es6-promise.min.js"><\/script>');
+  window.fetch || document.write('<script src="https://unpkg.com/whatwg-fetch@1.0.0/fetch.js"><\/script>');
+</script> -->
+<!-- Load Babel -->
+    <script src="node_modules/@babel/polyfill/dist/polyfill.js"></script>
+<!-- Your custom script here -->
+    <script  src="js/src/bundle.js"></script>
 </body>
-
 </html>

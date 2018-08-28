@@ -1,3 +1,4 @@
+
 window.addEventListener('DOMContentLoaded', () => {
     let tab = document.getElementsByClassName('info-header-tab'),
         tabContent = document.getElementsByClassName('info-tabcontent'),
@@ -310,7 +311,7 @@ window.addEventListener('DOMContentLoaded', () => {
         formName.addEventListener('submit', function(event) {
             event.preventDefault();
             container.appendChild(statusMessage);
-            statusMessage.style.display = 'block'
+            statusMessage.style.display = 'block';
             statusMessage.appendChild(divCircle);
             divCircle.appendChild(divComplete);
             divCircle.classList.add('circle-loader');
@@ -327,12 +328,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
                 if (request.readyState < 4) {
-                    console.log('loading')
+                    console.log('loading');
                 } else if (request.readyState === 4) {
                     if (request.status == 200 && request.status < 300) {
                         console.log('success');
                         divCircle.classList.add('load-complete');
-                        divComplete.classList.add('draw', 'checkmark')
+                        divComplete.classList.add('draw', 'checkmark');
                         setTimeout(() => {
                             statusMessage.classList.add('fadeOut');
                             statusMessage.classList.remove('fade');
@@ -342,11 +343,11 @@ window.addEventListener('DOMContentLoaded', () => {
                                 statusMessage.style.display = 'none';
                                 statusMessage.classList.remove('fadeOut');
                             }, 1500);
-                        }, 2000)
+                        }, 2000);
 
 
                     } else {
-                        console.log('fail')
+                        console.log('fail');
                         statusMessage.classList.remove(extra, 'fade');
                         statusMessage.cssText = '';
                         statusMessage.innerHTML = message.failure;

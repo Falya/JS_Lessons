@@ -18,7 +18,7 @@ function ajaxModule () {
             divComplete = document.createElement('div');
 
         statusMessage.classList.add(extra, 'fade');
-        formName.addEventListener('submit', function(event) {
+        formName.addEventListener('submit', (event) => {
             event.preventDefault();
             container.appendChild(statusMessage);
 

@@ -22,7 +22,7 @@ function tab () {
         }
     }
 
-    info.addEventListener('click', function(e) {
+    info.addEventListener('click', (e) => {
         let target = e.target;
         if (target.className == 'info-header-tab') {
             for (let i = 0; i < tab.length; i++) {

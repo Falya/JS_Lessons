@@ -18,7 +18,7 @@ function modalModule () {
 
     // Привязка модального окна к кнопкам “Узнать подробнее” в табах
 
-    divInfo.addEventListener('click', function(e) {
+    divInfo.addEventListener('click', (e) => {
         let target = e.target;
         if (target.className == 'description-btn') {
             setAnimation(drawModalIn);
